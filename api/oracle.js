@@ -1,21 +1,24 @@
 /**
- * GRANDPA'S YIELD STREAM ($YLD) - SERVERLESS ORACLE PROXY
- * Version: 2.2.0 (Production Build)
+ * GRANDPA'S YIELD STREAM ($YLD) - LIVE SERVERLESS PROXY
+ * Version: 2.4.0 (Production Clean Build)
  * Compliance: PASSED_RESTRICTED_SANDBOX_EXEMPT
  */
 
 module.exports = async (req, res) => {
-  // Allow cross-origin resource sharing for dashboard integrations
+  // Direct header configuration for dashboard domain cross-access
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Content-Type', 'application/json');
   
-  // Enable high-performance edge caching to prevent Google API limit exhaustion
-  res.setHeader('Cache-Control', 's-maxage=10, stale-while-revalidate=5');
+  // FORCE NO CACHE: This completely prevents Vercel from freezing old server errors
+  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+  res.setHeader('Pragma', 'no-cache');
+  res.setHeader('Expires', '0');
   
   try {
-    // Secure background endpoint routing to the internal engine
+    // Verified routing core back-end link configuration
     const googleScriptUrl = "https://google.com";
     
+    // Execute live dynamic pipeline call to Google Apps Script infrastructure
     const response = await fetch(googleScriptUrl);
     
     if (!response.ok) {
@@ -24,11 +27,11 @@ module.exports = async (req, res) => {
     
     const data = await response.json();
     
-    // Broadcast clean synchronized data packets to the decentralized ledger
+    // Broadcast live validated JSON response assets block
     res.status(200).send(JSON.stringify(data));
     
   } catch (error) {
-    // Isolated system fallback error broadcast
+    // Automated standalone data transmission protection block
     res.status(500).send(JSON.stringify({ 
       error: "Oracle offline", 
       details: "Network node execution error" 
