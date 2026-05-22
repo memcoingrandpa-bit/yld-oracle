@@ -16,7 +16,7 @@ module.exports = async (req, res) => {
   
   try {
     // Verified routing core back-end link configuration
-    const googleScriptUrl = "https://docs.google.com/spreadsheets/d/1fbNt7eClZF4ZZfTsQL6H4JK5v0EaF0JqrozlGKnCrJg/edit?usp=sharing";
+    const googleScriptUrl = "https://script.google.com/macros/s/AKfycbxdwVuQwW2lLwr3Ar1xZ0lmrLAIO2MLjpyAt7omKnJWvFGJ1vobOwGQwx8hEaqDeNs/exec";
     
     // Execute live dynamic pipeline call to Google Apps Script infrastructure
     const response = await fetch(googleScriptUrl);
